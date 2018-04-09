@@ -1,0 +1,93 @@
+DevOps Exercise
+Thank you for taking the time on this.
+Send your answers to these questions in response to the email you received (just cut-n-paste for ease of use).
+For the Coding part, create a repo on your Github account and include a link to the repo with your answers.
+Have fun!
+Question #1
+You have a server running in a VPC at amazon. It has two network interfaces, each on different subnets. You have intermittent network problems and see the following 
+type of entries in the logfile. What might be happening, and how could you address the problem? Information:
+ eth0 Link encap:Ethernet HWaddr 02:a4:dc:ae:48:a4
+ inet addr:10.3.47.2 Bcast:10.3.47.255 Mask:255.255.255.0
+ inet6 addr: fe80::a4:dcff:feae:48a4/64 Scope:Link
+ UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+ RX packets:1624 errors:0 dropped:0 overruns:0 frame:
+ TX packets:1461 errors:0 dropped:0 overruns:0 carrier:0
+ collisions:0 txqueuelen:1000
+ RX bytes:123523 (123.5 KB) TX bytes:284452 (284.4 KB)
+ Interrupt:25
+
+ eth1 Link encap:Ethernet HWaddr 02:a4:dc:ac:c0:9b
+ inet addr:10.4.106.2 Bcast:10.4.106.255 Mask:255.255.255.0
+ inet6 addr: fe80::a4:dcff:feac:c09b/64 Scope:Link
+ UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+ RX packets:44 errors:0 dropped:0 overruns:0 frame:0
+ TX packets:47 errors:0 dropped:0 overruns:0 carrier:0
+ collisions:0 txqueuelen:1000
+ RX bytes:2752 (2.7 KB) TX bytes:3690 (3.6 KB)
+ Interrupt:26
+
+ root@nat-router:~# grep martian /var/log/messages
+ Mar 31 09:25:45 nat-router kernel: martian source 10.3.47.2 from 10.4.106.25, on dev eth0
+ Mar 31 09:25:53 nat-router kernel: martian source 10.3.47.2 from 10.4.106.25, on dev eth0
+ Mar 31 09:26:10 nat-router kernel: martian source 10.3.47.2 from 10.4.106.25, on dev eth0
+
+we need to verify dhclient file exists or not (command is dhclient)
+if it exists we won't get this type of issue
+
+
+
+
+Question #2
+Consider the following scenario and answer with an expectation that you have at your disposal any framework or system to assist:
+You have a set of systems (perhaps 5~20) that require a change to be made (this can be a file, configuration, or software installed--the change is less important). 
+How would you go about getting this change made on all systems? Please include any details around the entire lifecycle, from when the need for the change is detected through to the final change being executed.
+
+I need to use Ansible tools to configure, install any software or need to change any configuration
+Ansible is written python. while using this tool i need write playbooks in python.
+And add all the machines in one group called [nodes]
+and then i need to run the playbook on nodes group
+
+Command: ansible-playbook playbook.yml -m nodes
+
+
+
+
+
+
+Question #3
+And to wrapup with a few questions about the job:
+1. What interests you in doing DevOps, System Administration and AWS? 
+Both
+i have good exp. in linux admin and AWS services as well.
+
+
+
+
+2. Are you eligible to work on the United State? 
+Yes.
+
+
+
+
+3. Are you willing to work in the Salt Lake City area? 
+Yes, i am willing to relocate anywhere in USA.
+
+
+
+
+Coding Exercise
+Write a script which pulls from the Star Wars API and reports a list of starships with pilots, and all of the pilots who have used the starship. Which programming language you use, how it is done and the rest are up to you. The exercise constraints:
+The script should run from the alpine:latest docker image.
+
+docker run -it alpile:latest
+
+Report output to stdout in a human readable manner.
+htop filename
+
+Create a repository on github, push your script(s) and Dockerfile to it, and send us the link.
+
+
+Your end result should be something we can run, so please include instructions for running it that an engineer who might not be familiar with your tech stack could follow.
+Email us when you are done.
+Only submit your own work. You can use libraries and frameworks, but make sure you wrote the script itself.
+The project is deliberately open-ended because we want to see how you build it--there is not any preferred way to get to the end result.
